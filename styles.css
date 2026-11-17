@@ -9,6 +9,14 @@
 
 html { background: var(--rose); -webkit-text-size-adjust: 100%; }
 
+/* La tarjeta no se corre de costado al hacer scroll en el celular:
+   nada (destellos, mariposa) puede abrir un desplazamiento horizontal,
+   y el dedo solo mueve la página hacia arriba/abajo (se puede seguir haciendo zoom) */
+html { overflow-x: hidden; }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
+html, body { overscroll-behavior-x: none; }
+body { touch-action: pan-y pinch-zoom; }
+
 body {
   margin: 0;
   background:
