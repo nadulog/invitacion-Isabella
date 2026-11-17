@@ -352,13 +352,16 @@ body.intro-open { overflow: hidden; }
 .intro__card {
   container-type: inline-size;
   position: relative;
-  width: min(100vw, calc(100dvh * 941 / 1672), 480px);
+  /* ancho de la tarjeta; el margen interno se calcula sobre ella (un % iría sobre toda la pantalla
+     y en desktop dejaba el texto diminuto) */
+  --card-w: min(100vw, calc(100dvh * 941 / 1672), 480px);
+  width: var(--card-w);
   aspect-ratio: 941 / 1672;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 13% 4%;
+  padding: 0 calc(var(--card-w) * .13) calc(var(--card-w) * .04);
   text-align: center;
   background: url("assets/02-invitados.jpg") center / cover no-repeat;
   box-shadow: 0 20px 60px rgba(120, 70, 90, .25);
